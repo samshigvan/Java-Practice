@@ -1,7 +1,6 @@
 package com.company.DSA.other;
 
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 //https://leetcode.com/problems/minimum-number-of-pushes-to-type-word-ii/description/
 
@@ -67,6 +66,5 @@ public class KeypadPushes {
     public static void main(String[] args) {
         String s ="aabbccddeeffgghhiiiiii";
         System.out.println(minimumPushes2(s));
-
     }
 }
