@@ -1,5 +1,7 @@
 package com.company.DSA.Array;
 
+import static java.lang.System.*;
+
 //https://leetcode.com/problems/remove-element/
 public class RemoveElement {
 
@@ -18,6 +20,6 @@ public class RemoveElement {
 
     public static void main(String[] args) {
         int []ar = {3,2,2,3};
-        System.out.println(removeElement(ar, 3));
+        out.println(removeElement(ar, 3));
     }
 }

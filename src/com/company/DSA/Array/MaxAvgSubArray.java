@@ -1,5 +1,7 @@
 package com.company.DSA.Array;
 
+import static java.lang.System.out;
+
 public class MaxAvgSubArray {
 
     public static double findMaxAverage(int[] nums, int k) {
@@ -22,8 +24,8 @@ public class MaxAvgSubArray {
         return maxAvg;
     }
     public static void main(String[] args) {
-        int nums[] ={1,12,-5,-6,50,3};
+        int[] nums ={1,12,-5,-6,50,3};
         int k = 4;
-        System.out.println(findMaxAverage(nums, k));
+        out.println(findMaxAverage(nums, k));
     }
 }

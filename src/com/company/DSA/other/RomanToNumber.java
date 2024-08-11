@@ -2,6 +2,8 @@ package com.company.DSA.other;
 
 import java.util.HashMap;
 
+import static java.lang.System.*;
+
 public class RomanToNumber {
 
     public static int romanToInt(String s) {
@@ -19,7 +21,7 @@ public class RomanToNumber {
         int len = s.length();
         for(int i=0; i<len; i++){
 
-            if(i<len){
+            if(i < len){
                 if(i<len-1 && map.get(s.charAt(i))< map.get(s.charAt(i+1)))
                     sum = sum - map.get(s.charAt(i));
                 else
@@ -31,6 +33,6 @@ public class RomanToNumber {
 
     public static void main(String[] args) {
         String roman = "LVIII"; //LVIII MCMXCIV
-        System.out.println(romanToInt(roman));
+        out.println(romanToInt(roman));
     }
 }

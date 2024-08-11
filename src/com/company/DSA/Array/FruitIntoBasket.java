@@ -2,6 +2,8 @@ package com.company.DSA.Array;
 
 import java.util.LinkedHashMap;
 
+import static java.lang.System.out;
+
 public class FruitIntoBasket {
 
     public static int totalFruit(int[] fruits) {
@@ -27,7 +29,7 @@ public class FruitIntoBasket {
     }
 
     public static void main(String[] args) {
-        int nums[] ={3,3,3,1,2,1,1,2,3,3,4};
-        System.out.println(totalFruit(nums));
+        int[] nums ={3,3,3,1,2,1,1,2,3,3,4};
+        out.println(totalFruit(nums));
     }
 }

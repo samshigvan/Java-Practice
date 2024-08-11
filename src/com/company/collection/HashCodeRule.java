@@ -1,7 +1,8 @@
 package com.company.collection;
 
 import java.util.HashMap;
-import java.util.Objects;
+
+import static java.lang.System.out;
 
 public class HashCodeRule {
 
@@ -52,8 +53,8 @@ public class HashCodeRule {
         // so if we didn't override both methods then we can use it in Hashmap as key,
         // collections based on hash will get failed to check identicale objects.
 
-        System.out.println("obj1 hashcode:"+ obj1.hashCode());
-        System.out.println("obj2 hashcode:"+ obj2.hashCode());
-        System.out.println(map);
+        out.println("obj1 hashcode:"+ obj1.hashCode());
+        out.println("obj2 hashcode:"+ obj2.hashCode());
+        out.println(map);
     }
 }

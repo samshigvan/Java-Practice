@@ -1,5 +1,7 @@
 package com.company.DSA.Array;
 
+import static java.lang.System.*;
+
 //https://leetcode.com/problems/alternating-groups-i/
 public class AlternatiingGroup {
 
@@ -29,8 +31,8 @@ public class AlternatiingGroup {
         //010
         //101
         //010
-        int nums[] = {0,1,0,0,1};
+        int[] nums = {0,1,0,0,1};
 //        int nums[] = {0, 1, 0};
-        System.out.println(numberOfAlternatingGroups(nums));
+        out.println(numberOfAlternatingGroups(nums));
     }
 }

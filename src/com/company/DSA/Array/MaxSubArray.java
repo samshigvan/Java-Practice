@@ -1,5 +1,7 @@
 package com.company.DSA.Array;
 
+import static java.lang.System.*;
+
 //https://leetcode.com/problems/maximum-subarray/
 public class MaxSubArray {
 
@@ -18,7 +20,7 @@ public class MaxSubArray {
 
     public static void main(String[] args) {
         int []arr= {-2,1,-3,4,-1,2,1,-5,4};
-        System.out.println(maxSubArray(arr));
+        out.println(maxSubArray(arr));
     }
 
 }

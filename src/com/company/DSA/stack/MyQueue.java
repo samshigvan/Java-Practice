@@ -3,12 +3,12 @@ package com.company.DSA.stack;
 import java.util.Stack;
 
 public class MyQueue {
-    Stack<Integer> s1;
-    Stack<Integer> s2;
+    private Stack<Integer> s1;
+    private Stack<Integer> s2;
 
     public MyQueue() {
-        s1=new Stack<Integer>();
-        s2=new Stack<Integer>();
+        s1=new Stack<>();
+        s2= new Stack<>();
     }
 
     public void push(int x) {

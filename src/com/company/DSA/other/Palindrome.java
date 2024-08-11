@@ -1,5 +1,7 @@
 package com.company.DSA.other;
 
+import static java.lang.System.*;
+
 public class Palindrome {
 
     private static boolean isPolindrome(int n){
@@ -8,7 +10,7 @@ public class Palindrome {
             return false;
 
         int sum = 0;
-        int temp= n;
+        int temp;
         int ref =n;
 
         while (n>0){
@@ -21,6 +23,6 @@ public class Palindrome {
 
     public static void main(String[] args) {
         int n = 4545;
-        System.out.println(isPolindrome(n));
+        out.println(isPolindrome(n));
     }
 }

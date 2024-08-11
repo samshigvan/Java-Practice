@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static java.lang.System.*;
+
 public class ComparableDemo implements Comparable<ComparableDemo>{
 
     private int id;
@@ -49,8 +51,8 @@ public class ComparableDemo implements Comparable<ComparableDemo>{
         list.add(new ComparableDemo(2,"mnq", 200));
         list.add(new ComparableDemo(4,"lmn", 200));
 
-        System.out.println(list);
+        out.println(list);
         Collections.sort(list);
-        System.out.println("after sort"+ list);
+        out.println("after sort"+ list);
     }
 }

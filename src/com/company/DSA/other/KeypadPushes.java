@@ -2,6 +2,8 @@ package com.company.DSA.other;
 
 import java.util.*;
 import java.util.stream.Collectors;
+
+import static java.lang.System.*;
 //https://leetcode.com/problems/minimum-number-of-pushes-to-type-word-ii/description/
 
 public class KeypadPushes {
@@ -35,7 +37,7 @@ public class KeypadPushes {
         int keyDownsCount = 0;
 
         for (int i =0; i<word.length(); i++){
-            Character c= Character.valueOf(word.charAt(i));
+            Character c= word.charAt(i);
             keyFreq.put(c, keyFreq.getOrDefault(c,0)+1);
         }
 
@@ -65,6 +67,6 @@ public class KeypadPushes {
 
     public static void main(String[] args) {
         String s ="aabbccddeeffgghhiiiiii";
-        System.out.println(minimumPushes2(s));
+        out.println(minimumPushes2(s));
     }
 }
