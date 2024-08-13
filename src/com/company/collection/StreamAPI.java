@@ -2,16 +2,17 @@ package com.company.collection;
 
 import com.company.collection.pojo.Student;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class StreamAPI {
 
     public static void main(String[] args) {
 
+        sortMapByKeyOccurrenceInAnotherList();
+    }
+
+    public static void simpleStream(){
         List<Student> list = Arrays.asList(
                 new Student(1, "Rohit", "Mall", 30, "Male", "Mechanical Engineering", 2015, "Mumbai", 122),
                 new Student(2, "Pulkit", "Singh", 56, "Male", "Computer Engineering", 2018, "Delhi", 67),
@@ -79,7 +80,7 @@ public class StreamAPI {
 //        10- Find the department who is having maximum number of students
         System.out.println("10- Find the department who is having maximum number of students");
         list.stream().collect(Collectors.groupingBy(Student::getDepartmantName, Collectors.counting()))
-                        .entrySet().stream().max(Comparator.comparing(Map.Entry::getValue)).ifPresent(System.out::println);
+                .entrySet().stream().max(Comparator.comparing(Map.Entry::getValue)).ifPresent(System.out::println);
         System.out.println();
 
 //        11- Find the Students who stays in Delhi and sort them by their names
@@ -106,7 +107,68 @@ public class StreamAPI {
         System.out.println("15- Find the student who has second rank");
         list.stream().sorted(Comparator.comparing(Student::getRank)).skip(1).findFirst().ifPresent(System.out::println);
         System.out.println();
+    }
 
+    public static void highestOccurrence(){
+        List<String> names = Arrays.asList(
+                "Amaan","Ravi","Ahmad","Shafiq","Ahmad",
+                "Ahmad","Amaan"
+        );
+
+        Map<String,Long> str = names.stream().collect(Collectors.groupingBy(e->e, Collectors.counting()));
+        System.out.println(str.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).limit(2).collect(Collectors.toList()));
+    }
+
+    public static void sortMapByKeySplit(){
+
+        Map<String, Integer> alphanumericMap = new HashMap<>();
+        alphanumericMap.put("A12",1);
+        alphanumericMap.put("A1",1);
+        alphanumericMap.put("B10",1);
+        alphanumericMap.put("B9",1);
+        alphanumericMap.put("C8",1);
+        alphanumericMap.put("C3",1);
+        alphanumericMap.put("BD3",1);
+        alphanumericMap.put("BD23",1);
+
+        alphanumericMap.entrySet().stream().sorted(new Comparator<Map.Entry<String, Integer>>() {
+            @Override
+            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+                int i = o1.getKey().split("(?<=[a-zA-Z])(?=\\d)")[0].compareTo(o2.getKey().split("(?<=[a-zA-Z])(?=\\d)")[0]);
+                return i == 0? o1.getKey().split("(?<=[a-zA-Z])(?=\\d)")[1].compareTo(o2.getKey().split("(?<=[a-zA-Z])(?=\\d)")[1]) : i;
+            }
+        }).forEach(c -> System.out.println(c.getKey()));
+    }
+
+    public static void sortMapByKeyOccurrenceInAnotherList(){
+
+        Map<String, Integer> map = new HashMap<>();
+        map.put("abcd", 1);
+        map.put("pqrst", 1);
+        map.put("xyz", 1);
+        map.put("lmn", 1);
+        map.put("efg", 1);
+        map.put("hij", 1);
+
+        List<String> list = Arrays.asList("abcd","pqrst","xyz", "abcd", "xyz", "xyz", "lmn", "abcd", "abcd", "efg" );
+        Map<String, Long> freq = list.stream().collect(Collectors.groupingBy(s->s, Collectors.counting()));
+        freq.entrySet().stream().forEach(str-> System.out.println(str.getKey() + " " + str.getValue()));
+
+        System.out.println();
+
+        map.entrySet().stream().sorted(new Comparator<Map.Entry<String, Integer>>() {
+            @Override
+            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+
+                if (!freq.containsKey(o1.getKey())){
+                    return 1;
+                }
+                if (!freq.containsKey(o2.getKey())){
+                    return -1;
+                }
+                return freq.get(o2.getKey()).compareTo(freq.get(o1.getKey()));
+            }
+        }).forEach(entry -> System.out.println(entry.getKey()));
     }
 
 }
