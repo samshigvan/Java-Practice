@@ -1,5 +1,7 @@
 package com.company.DSA.LinkList;
 
+import com.company.DSA.LinkList.pojo.ListNode;
+
 //https://leetcode.com/problems/merge-two-sorted-lists/
 public class MergeSortedListNodes {
 
