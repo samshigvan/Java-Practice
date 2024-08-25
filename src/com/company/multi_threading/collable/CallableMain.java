@@ -1,4 +1,4 @@
-package com.company.multithreding.collable;
+package com.company.multi_threading.collable;
 
 import java.util.concurrent.*;
 

@@ -1,7 +1,5 @@
-package com.company.multithreding;
+package com.company.multi_threading;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
 import java.util.concurrent.*;
 
 public class MainThread {

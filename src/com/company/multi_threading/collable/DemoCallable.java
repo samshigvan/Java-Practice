@@ -1,6 +1,5 @@
-package com.company.multithreding.collable;
+package com.company.multi_threading.collable;
 
-import java.util.Random;
 import java.util.concurrent.Callable;
 
 public class DemoCallable implements Callable<Integer> {
