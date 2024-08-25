@@ -4,12 +4,51 @@ import com.company.collection.pojo.Student;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 
 public class StreamAPI {
 
+    static int counter;
+
     public static void main(String[] args) {
 
-        sortMapByKeyOccurrenceInAnotherList();
+        isStreamLazy();
+//        sortMapByKeyOccurrenceInAnotherList();
+    }
+
+    public static void isStreamLazy(){
+        List<String> list = Arrays.asList("abc1", "abc2", "abc3");
+        counter = 0;
+        Stream<String> stream = list.stream().filter(element -> {
+            wasCalled();
+            return element.contains("2");
+        });
+        /* it will print 0, we didn't use terminal operator so stream will not execute */
+        System.out.println("counter is:" + counter);
+
+
+        /*
+        * As we have a source of three elements, we can assume that the filter() method will be called three times,
+        * and the value of the counter variable will be 3. However, running this code doesn’t change counter at all,
+        * it is still zero, so the filter() method wasn’t even called once.
+        * The reason why is missing of the terminal operation.
+        *
+        * Let’s rewrite this code a little bit by adding a map() operation and a terminal operation, findFirst().
+        * We will also add the ability to track the order of method calls with the help of logging:
+        * */
+        Optional<String> stream2 = list.stream().filter(element -> {
+            log.println("filter() was called");
+            return element.contains("2");
+        }).map(element -> {
+            log.println("map() was called");
+            return element.toUpperCase();
+        }).findFirst();
+
+    }
+    public static void wasCalled(){
+        counter++;
     }
 
     public static void simpleStream(){
