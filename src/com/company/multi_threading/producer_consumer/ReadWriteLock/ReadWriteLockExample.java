@@ -5,6 +5,8 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class ReadWriteLockExample {
 
+    /*
+    * When we have very high read operation compared to write operations, ReadWriteLock is useful*/
     public static void main(String[] args) {
 
         SharedResource resource = new SharedResource();
