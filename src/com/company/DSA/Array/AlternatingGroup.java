@@ -3,7 +3,7 @@ package com.company.DSA.Array;
 import static java.lang.System.*;
 
 //https://leetcode.com/problems/alternating-groups-i/
-public class AlternatiingGroup {
+public class AlternatingGroup {
 
     public static int numberOfAlternatingGroups(int[] colors) {
 
@@ -31,8 +31,8 @@ public class AlternatiingGroup {
         //010
         //101
         //010
-        int[] nums = {0,1,0,0,1};
-//        int nums[] = {0, 1, 0};
-        out.println(numberOfAlternatingGroups(nums));
+        int[] num = {0,1,0,0,1};
+//        int num[] = {0, 1, 0};
+        out.println(numberOfAlternatingGroups(num));
     }
 }
