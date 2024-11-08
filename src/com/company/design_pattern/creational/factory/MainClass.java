@@ -3,7 +3,7 @@ package com.company.design_pattern.creational.factory;
 public class MainClass {
     /*
     * When we want to create objects based on certain conditions
-    * then we can use Factory design patter
+    * then we can useqq:q Factory design patter
     * */
     public static void main(String[] args) {
 
