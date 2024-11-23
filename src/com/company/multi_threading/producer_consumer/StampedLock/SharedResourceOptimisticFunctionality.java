@@ -2,6 +2,11 @@ package com.company.multi_threading.producer_consumer.StampedLock;
 
 import java.util.concurrent.locks.StampedLock;
 
+/*
+    Stamped lock supports both read-write lock & optimistic lock functionality.
+
+    Here is example of optimistic lock functionality..
+ */
 public class SharedResourceOptimisticFunctionality {
 
     int a = 10;

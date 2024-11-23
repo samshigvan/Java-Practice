@@ -5,7 +5,7 @@ import java.util.concurrent.locks.StampedLock;
 /*
     Stamped lock supports both read-write lock & optimistic lock functionality.
 
-    Here is example of read-write locker functionality..
+    Here is example of read-write lock functionality..
  */
 public class SharedResourceReadWriteFunctionality {
 
