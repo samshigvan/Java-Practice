@@ -1,6 +1,5 @@
 package com.company.DSA.Array;
 
-//Prefix sum works if all elements are greater than 0
 public class RangeSumQueryImmutable {
 
     public static void main(String[] args) {
@@ -12,18 +11,24 @@ public class RangeSumQueryImmutable {
 }
 class NumArray {
 
-    int[] nums;
+    private final int[] preffixSum,nums;
     public NumArray(int[] nums) {
 
         this.nums = nums;
+        this.preffixSum = new int[nums.length];
+
+        for (int i = 0; i < nums.length; i++) {
+            preffixSum[i] = nums[i];
+
+            if (i>0) {
+                preffixSum[i] = preffixSum[i] + preffixSum[i-1];
+            }
+        }
     }
 
     public int sumRange(int left, int right) {
 
-        int sum=0;
-        for (int i=left; i<= right; i++){
-            sum += nums[i];
-        }
-        return sum;
+        return left == 0 ? preffixSum[right] : preffixSum[right] - preffixSum[left - 1];
+
     }
 }
