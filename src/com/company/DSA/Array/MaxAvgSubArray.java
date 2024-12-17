@@ -5,23 +5,20 @@ import static java.lang.System.out;
 public class MaxAvgSubArray {
 
     public static double findMaxAverage(int[] nums, int k) {
-        int windowStart=0;
-        int len=nums.length;
-        int windowSum =0;
-        double windowAvg = 0;
-        double maxAvg =0;
+        int sum = 0;
 
-        for(int windowEnd=0; windowEnd<=len-1; windowEnd++){
-            windowSum = nums[windowEnd]+ windowSum ;
-
-            if(windowEnd>=k-1){
-                windowAvg = (double) windowSum /k;
-                maxAvg = Math.max(maxAvg, windowAvg);
-                windowSum = windowSum-nums[windowStart];
-                windowStart = windowStart+1;
-            }
+        for(int right =0; right<k; right++ ){
+            sum = sum + nums[right];
         }
-        return maxAvg;
+        int maxSum = sum;
+
+        for(int right =k; right<nums.length; right++ ){
+
+            sum = sum + nums[right] - nums[right-k];
+            maxSum = Math.max(maxSum, sum);
+        }
+
+        return (double)maxSum/k;
     }
     public static void main(String[] args) {
         int[] nums ={1,12,-5,-6,50,3};
